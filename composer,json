@@ -1,0 +1,41 @@
+{
+  "name": "pinktie/laravel-notifications-trello",
+  "description": "Laravel 5.x.x Notifications Channel for Trello",
+  "keywords": ["laravel", "trello", "notifications"],
+  "homepage": "https://github.com/PinkTie/laravel-notifications-trello",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kevin Fairbanks",
+      "email": "kevin@kevinfairbanks.com"
+    }
+  ],
+  "require": {
+        "php": ">=5.6.4",
+        "guzzlehttp/guzzle": "~6.0",
+        "illuminate/notifications": "5.3.*|5.4.*|5.5.*|5.6.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "4.*",
+        "orchestra/testbench": "3.3.x-dev",
+        "orchestra/database": "3.3.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "PinkTie\\TrelloNotifications\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PinkTie\\TrelloNotifications\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
