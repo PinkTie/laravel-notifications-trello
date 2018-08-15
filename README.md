@@ -65,7 +65,8 @@ class ProjectCreated extends Notification
             ->name("Trello Card Name")
             ->description("This is the Trello card description")
             ->top()
-            ->due('tomorrow');
+            ->due('tomorrow')
+	    ->members('123456abc7890xyz');
     }
 }
 ```
@@ -92,6 +93,7 @@ public function routeNotificationForTrello()
 - `bottom()`: Moves the Trello card to the bottom.
 - `position('')`: Accepts an integer for a specific Trello card position.
 - `due('')`: Accepts a string or DateTime object for the Trello card due date.
+- `members('')`: Accepts a comma-seperated string list of member IDs to add to the card.
 
 
 ## Changelog
