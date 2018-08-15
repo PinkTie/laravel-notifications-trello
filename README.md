@@ -11,6 +11,9 @@ Create [Trello](https://www.trello.com/) cards with Laravel Notifications on Lar
 ## Contents
 
 - [Installation](#installation)
+  - [Setting up the Trello service](#setting-up-the-trello-service)
+- [Usage](#usage)
+	- [Available Message methods](#available-message-methods)
 - [Changelog](#changelog)
 - [Support](#support)
 - [Security](#security)
@@ -18,53 +21,104 @@ Create [Trello](https://www.trello.com/) cards with Laravel Notifications on Lar
 - [Credits](#credits)
 - [License](#license)
 
-## Installation  -- NEED TO UPDATE
 
-1) With a clean install of Laravel 5.5 or 5.6 you can install the package via composer:
->  `composer require pinktie/laravel-dashboard-tabler`
+## Installation 
 
-Laravel will automatically discover this package, there is no need to register the service provider.
+Install the package via composer:
+``` bash
+composer require pinktie/laravel-notifications-trello
+```
 
-2) Choose a Preset option:
->  (**NOTE**: If you run the preset command more than one time, you will have to clean up the duplicate Auth entries in `routes/web.php`)
+### Setting up the Trello service
 
-For a basic Tabler preset run:
->  `php artisan preset tabler`
+Add your Trello REST API Key to your `config/services.php`:
 
-For a basic Tabler preset, Auth route entry and Tabler Auth views run:
->  `php artisan preset tabler-auth`
+```php
+// config/services.php
+...
+'trello' => [
+    'key' => env('TRELLO_API_KEY'),
+],
+...
+```
 
 
-3) Install package depenancies via yarn:
->  `yarn`
->  `yarn dev` or `yarn watch`
+## Usage
 
-4) Configure your database settings
+Now you can use the channel in your `via()` method inside the notification:
 
-5) Migrate user tables:
->  `php artisan migrate`
+``` php
+use PinkTie\TrelloNotifications\TrelloChannel;
+use PinkTie\TrelloNotifications\TrelloMessage;
+use Illuminate\Notifications\Notification;
+
+class ProjectCreated extends Notification
+{
+    public function via($notifiable)
+    {
+        return [TrelloChannel::class];
+    }
+
+    public function toTrello($notifiable)
+    {
+        return TrelloMessage::create()
+            ->name("Trello Card Name")
+            ->description("This is the Trello card description")
+            ->top()
+            ->due('tomorrow');
+    }
+}
+```
+
+In order to let your Notification know which Trello user and Trello list you are targeting, add the `routeNotificationForTrello` method to your Notifiable model.
+
+This method needs to return an array containing the access token of the authorized Trello user (if it's a private board) and the list ID of the Trello list to add the card to.
+
+```php
+public function routeNotificationForTrello()
+{
+    return [
+        'token' => 'NotifiableToken',
+        'idList' => 'TrelloListId',
+    ];
+}
+```
+
+### Available methods
+
+- `name('')`: Accepts a string value for the Trello card name.
+- `description('')`: Accepts a string value for the Trello card description.
+- `top()`: Moves the Trello card to the top.
+- `bottom()`: Moves the Trello card to the bottom.
+- `position('')`: Accepts an integer for a specific Trello card position.
+- `due('')`: Accepts a string or DateTime object for the Trello card due date.
 
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
+
 ## Support
 
 If you discover any issues or would like to request addtional features, please use the GitHub issue tracker.
+
 
 ## Security
 
 If you discover any security related issues, please email support@pinktietech.com instead of using the issue tracker.
 
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
 
 ## Credits
 
 - [Kevin Fairbanks](https://github.com/KevinFairbanks)
 - [All Contributors](../../contributors)
+
 
 ## License
 
