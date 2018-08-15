@@ -18,6 +18,9 @@ class TrelloMessage
     /** @var string|null */
     protected $due;
 
+    /** @var string|null */
+    protected $member;
+
     /**
      * @param string $name
      *
@@ -119,6 +122,19 @@ class TrelloMessage
 
         return $this;
     }
+    
+    /**
+     * Set the card assigned members.
+     *
+     * @param string $members
+     *
+     * @return $this
+     */
+    public function members($members)
+    {
+        $this->members = $members;
+        return $this;
+    }
 
     /**
      * @return array
@@ -130,6 +146,7 @@ class TrelloMessage
             'desc' => $this->description,
             'pos' => $this->position,
             'due' => $this->due,
+            'idMembers' => $this->members,
         ];
     }
 }
