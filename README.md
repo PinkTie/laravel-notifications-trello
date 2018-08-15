@@ -1,6 +1,3 @@
-## IN DEVELOPMENT - DO NOT USE IN PRODUCTION
-
-
 ### ![PinkTie Logo](https://pinktietech.com/wp-content/uploads/2017/03/PinkTie-60x60.png) PinkTie Technology Group
 # Laravel 5.x.x Notifications Channel for Trello
 
