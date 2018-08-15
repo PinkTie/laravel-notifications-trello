@@ -1,11 +1,12 @@
-# laravel-notifications-trello
-Create Trello cards with Laravel
+## IN DEVELOPMENT - DO NOT USE IN PRODUCTION
+
+
 ### ![PinkTie Logo](https://pinktietech.com/wp-content/uploads/2017/03/PinkTie-60x60.png) PinkTie Technology Group
-# Laravel 5.5/5.6 Preset for Tabler Dashboard UI Kit
+# Laravel 5.x.x Notifications Channel for Trello
 
-[![Latest Stable Version](https://poser.pugx.org/pinktie/laravel-dashboard-tabler/v/stable)](https://packagist.org/packages/pinktie/laravel-dashboard-tabler) [![License](https://poser.pugx.org/pinktie/laravel-dashboard-tabler/license)](https://packagist.org/packages/pinktie/laravel-dashboard-tabler) [![Total Downloads](https://poser.pugx.org/pinktie/laravel-dashboard-tabler/downloads)](https://packagist.org/packages/pinktie/laravel-dashboard-tabler) [![Latest Unstable Version](https://poser.pugx.org/pinktie/laravel-dashboard-tabler/v/unstable)](https://packagist.org/packages/pinktie/laravel-dashboard-tabler)
+[![Latest Stable Version](https://poser.pugx.org/pinktie/laravel-notifications-trello/v/stable)](https://packagist.org/packages/pinktie/laravel-notifications-trello) [![License](https://poser.pugx.org/pinktie/laravel-notifications-trello/license)](https://packagist.org/packages/pinktie/laravel-notifications-trello) [![Total Downloads](https://poser.pugx.org/pinktie/laravel-notifications-trello/downloads)](https://packagist.org/packages/pinktie/laravel-notifications-trello) [![Latest Unstable Version](https://poser.pugx.org/pinktie/laravel-notifications-trello/v/unstable)](https://packagist.org/packages/pinktie/laravel-notifications-trello)
 
-Create [Trello](https://www.trello.com/) cards with Laravel Notifications on Laravel 5.X.X
+Create [Trello](https://www.trello.com/) cards with Laravel Notifications on Laravel 5.x.x
 
 ## Contents
 
